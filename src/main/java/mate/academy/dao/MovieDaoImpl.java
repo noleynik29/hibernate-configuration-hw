@@ -26,9 +26,10 @@ public class MovieDaoImpl implements MovieDao {
             if (transaction != null) {
                 transaction.rollback();
             }
-            throw new DataProcessingException("Can't insert movie: " + movie, e);
+            throw new DataProcessingException("Failed to add movie " + movie, e);
         }
     }
+
 
     @Override
     public Optional<Movie> get(Long id) {
