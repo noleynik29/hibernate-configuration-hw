@@ -19,7 +19,8 @@ public class MovieDaoImpl implements MovieDao {
     @Override
     public Movie add(Movie movie) {
         Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
+        try {
+            Session session = sessionFactory.openSession();
             transaction = session.beginTransaction();
             session.persist(movie);
             transaction.commit();
@@ -34,7 +35,8 @@ public class MovieDaoImpl implements MovieDao {
 
     @Override
     public Optional<Movie> get(Long id) {
-        try (Session session = sessionFactory.openSession()) {
+        try {
+            Session session = sessionFactory.openSession();
             Movie movie = session.get(Movie.class, id);
             return Optional.ofNullable(movie);
         } catch (Exception e) {
