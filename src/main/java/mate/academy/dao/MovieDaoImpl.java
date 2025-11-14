@@ -30,7 +30,6 @@ public class MovieDaoImpl implements MovieDao {
         }
     }
 
-
     @Override
     public Optional<Movie> get(Long id) {
         try (Session session = sessionFactory.openSession()) {
