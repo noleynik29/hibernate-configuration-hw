@@ -33,7 +33,7 @@ public class MovieDaoImpl implements MovieDao {
             }
             throw new DataProcessingException("Failed to add movie " + movie, e);
         } finally {
-            if (session != null && session.isOpen()) {
+            if (session != null) {
                 session.close();
             }
         }
